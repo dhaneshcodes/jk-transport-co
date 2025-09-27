@@ -1,0 +1,252 @@
+@use '../custom' as *;
+@use '../components/mixins' as *;
+
+.intro-section {
+    @include gradient;
+    padding: 10rem 0 0 0;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    // Add animated background elements
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="10" cy="60" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="90" cy="40" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+        animation: float 20s ease-in-out infinite;
+        opacity: 0.3;
+    }
+}
+
+.intros {
+    position: relative;
+    z-index: 2;
+
+    .intro-badge {
+        animation: fadeInUp 1s ease-out;
+        
+        .badge {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            }
+        }
+    }
+
+    .display-2 {
+        animation: fadeInUp 1s ease-out 0.2s both;
+        
+        .display-2--intro {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            
+            .text-warning {
+                background: linear-gradient(135deg, $amber-gold, #FFD700);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                animation: glow 2s ease-in-out infinite alternate;
+            }
+        }
+        
+        .display-2--description {
+            animation: fadeInUp 1s ease-out 0.4s both;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+    }
+
+    .intro-stats {
+        animation: fadeInUp 1s ease-out 0.6s both;
+        margin-bottom: 4rem !important;
+        
+        .stat-item {
+            padding: 1rem;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            animation: pulse 2s ease-in-out infinite;
+            
+            &:hover {
+                transform: translateY(-5px);
+                background: rgba(255, 255, 255, 0.15);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            }
+            
+            h3 {
+                font-size: 2.5rem;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+            
+            p {
+                font-size: 0.9rem;
+                opacity: 0.9;
+            }
+        }
+    }
+
+    .intro-materials {
+        animation: fadeInUp 1s ease-out 0.8s both;
+        
+        .materials-list {
+            .badge {
+                background: rgba(255, 255, 255, 0.95) !important;
+                color: $navy-dark !important;
+                border: 2px solid rgba(255, 255, 255, 0.3);
+                transition: all 0.3s ease;
+                animation: bounce 1s ease-in-out;
+                
+                &:hover {
+                    transform: translateY(-3px) scale(1.05);
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                    background: $amber-gold !important;
+                    color: white !important;
+                }
+                
+                i {
+                    color: $navy-dark;
+                    transition: color 0.3s ease;
+                }
+                
+                &:hover i {
+                    color: white;
+                }
+            }
+        }
+    }
+
+    .intro-cta {
+        animation: fadeInUp 1s ease-out 1s both;
+        
+        .btn {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            
+            &:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            }
+        }
+        
+        .btn-warning {
+            background: linear-gradient(135deg, $amber-gold, #FFD700);
+            border: none;
+            font-weight: 600;
+            
+            &:hover {
+                background: linear-gradient(135deg, #FFD700, $amber-gold);
+            }
+        }
+        
+        .btn-outline-light {
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            
+            &:hover {
+                background: rgba(255, 255, 255, 0.1);
+                border-color: white;
+            }
+        }
+    }
+
+    .trust-indicators {
+        animation: fadeInUp 1s ease-out 1.2s both;
+        
+        p {
+            font-size: 1.1rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+    }
+
+    .video-box {
+        position: relative;
+
+        a {
+            span {
+                i {
+                    font-size: 6rem;
+                    color: $amber-gold;
+                    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+                }
+            }
+        }
+    }
+}
+
+// Animations
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 10px rgba($amber-gold, 0.5);
+    }
+    to {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px rgba($amber-gold, 0.8);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.border-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6rem;
+    height: 6rem;
+    border: 0.55rem solid $white;
+    border-radius: 50%;
+    animation: pulse-border 1.5s linear infinite;
+
+    &--border-1 {
+        animation-delay: 1s;
+    }
+    &--border-2 {
+        animation-delay: 1.5s;
+    }
+}

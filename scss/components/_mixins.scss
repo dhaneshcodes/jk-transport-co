@@ -1,0 +1,45 @@
+@use '../custom' as *;
+
+// TRANSPORT NAVY GRADIENT MIXIN 
+@mixin gradient {
+    background: linear-gradient(135deg, rgba($primary, 0.95), rgba($secondary, 0.95), rgba($rich-navy, 0.9));
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+// TRANSPORT PREMIUM GRADIENT FOR SPECIAL ELEMENTS
+@mixin metallic-gradient {
+    background: linear-gradient(135deg, rgba($navy-dark, 0.9), rgba($amber-gold, 0.8), rgba($metallic-silver, 0.9));
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+// ABSOLUTE CENTER 
+@mixin absoluteCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// TRANSITION PROPERTY 
+@mixin transitionProperty {
+    transition-duration: 1s;
+    transition-property: all;
+}
+
+// PROFESSIONAL HOVER EFFECT
+@mixin professional-hover {
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+}
+
+// TRANSPORT TEXT EFFECT
+@mixin metallic-text {
+    background: linear-gradient(135deg, $amber-gold, $metallic-silver, $navy-light);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+}
